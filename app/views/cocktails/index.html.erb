@@ -1,19 +1,28 @@
 <div class="banner cocktail_banner">
   <div class="banner-content">
     <h1>All Cocktails</h1>
+    <button class="btn btn-ghost"> <%= link_to 'Create a new cocktail', new_cocktail_path %> </button>
   </div>
 </div>
 
 
-<div class="row">
-  <% @cocktails.each do |cocktail| %>
-    <div class="col-xs-12 col-sm-4">
-        <%= link_to cocktail.name, cocktail_path(cocktail) %>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-    </div>
-
-  <% end %>
-
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-md-4 col-sm-4">
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class='card'>
+            <img src='https://kitt.lewagon.com/placeholder/cities/shanghai'>
+            <div class='card-description'>
+              <h2><%= cocktail.name %> </h2>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to 'Create a new cocktail', new_cocktail_path %>
+
+
+
