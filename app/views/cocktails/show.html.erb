@@ -1,4 +1,6 @@
-<h1> <%= @cocktail.name %></h1>
+<div class="cocktail_banner">
+  <h1> <%= @cocktail.name %></h1>
+</div>
 
 <ul>
   <% @cocktail.doses.each do |dose| %>
@@ -10,11 +12,15 @@
   <% end %>
 </ul>
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit "add description", class: "btn btn-primary" %>
-<% end %>
+<div class="input">
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <div class= "form">
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.submit "add description", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'back to cocktails', cocktails_path %>
 
